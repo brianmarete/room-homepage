@@ -8,10 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      backgroundImage: {
+        "aboutImage-dark": "url('/images/image-about-dark.jpg')",
+        "aboutImage-light": "url('/images/image-about-light.jpg')",
+      }
     },
   },
   plugins: [],

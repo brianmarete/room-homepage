@@ -1,4 +1,6 @@
 import Image from "next/image";
+import angleLeft from "@/images/icon-angle-left.svg";
+import angleRight from "@/images/icon-angle-right.svg";
 
 interface SlideshowButtonsProps {
   handlePrev: () => void;
@@ -16,24 +18,14 @@ const SlideshowButtons = ({
         className="flex-1 flex justify-center items-center bg-black hover:bg-gray-700"
         aria-label="Previous slide"
       >
-        <Image
-          src="/images/icon-angle-left.svg"
-          alt=""
-          width={10}
-          height={10}
-        />
+        <Image src={angleLeft} alt="" />
       </button>
       <button
         onClick={handleNext}
         className="flex-1 flex justify-center items-center bg-black hover:bg-gray-700"
         aria-label="Next slide"
       >
-        <Image
-          src="/images/icon-angle-right.svg"
-          alt=""
-          width={10}
-          height={10}
-        />
+        <Image src={angleRight} alt="" />
       </button>
     </>
   );

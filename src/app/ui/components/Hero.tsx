@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import SlideshowButtons from "./SlideshowButtons";
+import SlideshowButtons from "@/app/ui/components/SlideshowButtons";
+import arrowIcon from "@/images/icon-arrow.svg";
 
 const content = [
   {
@@ -110,14 +111,7 @@ export default function Hero() {
             {currentContent.text}
           </p>
           <button className="uppercase font-bold text-start tracking-[1em] md:w-2/3 hover:text-gray-400">
-            Shop now{" "}
-            <Image
-              className="inline"
-              src="/images/icon-arrow.svg"
-              alt=""
-              width={50}
-              height={10}
-            />
+            Shop now <Image className="inline" src={arrowIcon} alt="" />
           </button>
         </div>
         <div className="hidden absolute bottom-0 right-0 md:flex md:justify-around md:left-0 md:w-32 md:h-14 ">

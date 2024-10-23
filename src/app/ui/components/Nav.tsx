@@ -5,6 +5,7 @@ import MenuIcon from "@/images/icon-hamburger.svg";
 import CloseIcon from "@/images/icon-close.svg";
 import Image from "next/image";
 import { useState } from "react";
+import CustomLink from "./CustomLink";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,18 +60,10 @@ const Nav = () => {
       {/* DESKTOP MENU */}
       <nav className="hidden md:flex md:items-center text-white">
         <ul className="leading-none space-x-8">
-          <li className="inline">
-            <a href="#">home</a>
-          </li>
-          <li className="inline">
-            <a href="#">shop</a>
-          </li>
-          <li className="inline">
-            <a href="#">about</a>
-          </li>
-          <li className="inline">
-            <a href="#">contact</a>
-          </li>
+          <CustomLink href="#">home</CustomLink>
+          <CustomLink href="#">shop</CustomLink>
+          <CustomLink href="#">about</CustomLink>
+          <CustomLink href="#">contact</CustomLink>
         </ul>
       </nav>
     </div>

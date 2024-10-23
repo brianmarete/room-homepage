@@ -1,9 +1,9 @@
 const About = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 h-full grow">
-      <div className="bg-aboutImage-dark bg-center bg-cover"></div>
-      <div className="md:px-12 py-16">
-        <h2 className="text-lg font-bold uppercase tracking-[0.3em]">
+    <div className="grid grid-cols-1 md:grid-cols-3 h-[40%] min-h-[35vh]">
+      <div className="bg-aboutImage-dark bg-center bg-cover min-h-60"></div>
+      <div className="md:px-12 py-16 px-8">
+        <h2 className="text-lg font-bold uppercase tracking-[0.3em] mb-2">
           About our furniture
         </h2>
         <p className="text-gray-500">
@@ -15,7 +15,7 @@ const About = () => {
           dream space.
         </p>
       </div>
-      <div className="bg-aboutImage-light bg-center bg-cover"></div>
+      <div className="bg-aboutImage-light bg-center bg-cover min-h-60"></div>
     </div>
   );
 };

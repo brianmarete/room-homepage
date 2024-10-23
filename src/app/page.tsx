@@ -4,7 +4,7 @@ import Nav from "./ui/components/Nav";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen relative">
       <Nav />
       <Hero />
       <About />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import SlideshowButtons from "./SlideshowButtons";
 
 const content = [
   {
@@ -26,6 +27,8 @@ const content = [
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  const currentContent = content[currentIndex];
 
   const handleNext = () => {
     if (!isAnimating) {
@@ -65,47 +68,48 @@ export default function Hero() {
     };
   }, []);
 
-  const currentContent = content[currentIndex];
-
   return (
-    <div className="grid md:grid-cols-2 h-2/3">
-      <div>
+    <div className="grid md:grid-cols-5 grid-cols-1 min-h-[65vh] overflow-hidden">
+      <div className="relative md:col-span-3 overflow-hidden">
         <Image
           src={currentContent.desktopImage}
           alt=""
           width={840}
           height={534}
-          className={`hidden md:block transition-opacity duration-1000 ${
-            isAnimating ? "opacity-0" : "opacity-100"
+          className={`hidden md:block w-full h-full transition-all ease-in-out duration-1000 ${
+            isAnimating ? "opacity-0 scale-100" : "opacity-100 scale-105"
           }`}
         />
         <Image
           src={currentContent.mobileImage}
           alt={currentContent.title}
-          layout="fill"
-          objectFit="cover"
-          className={`md:hidden transition-opacity duration-1000 ${
-            isAnimating ? "opacity-0" : "opacity-100"
+          width={415}
+          height={400}
+          className={`md:hidden block transition-all ease-in-out duration-1000 ${
+            isAnimating ? "opacity-0 scale-100" : "opacity-100 scale-105"
           }`}
         />
+        <div className="md:hidden absolute bottom-0 right-0 flex justify-around md:left-0 w-28 h-16 md:w-32 md:h-14">
+          <SlideshowButtons handleNext={handleNext} handlePrev={handlePrev} />
+        </div>
       </div>
-      <div className="relative md:p-28">
-        <div className="max-w-md">
+      <div className="relative md:col-span-2 px-8 py-8 lg:pl-12 lg:pt-12 xl:pl-28 xl:pt-28">
+        <div className="max-w-7xl">
           <h1
-            className={`font-bold text-5xl mb-4 ${
+            className={`font-bold text-4xl md:text-5xl mb-4 max-w-md transition-opacity ease-in-out duration-1000 ${
               isAnimating ? "opacity-0" : "opacity-100"
             }`}
           >
             {currentContent.title}
           </h1>
           <p
-            className={`text-gray-500 mb-4 ${
+            className={`text-gray-500 mb-4 max-w-md transition-opacity ease-in-out duration-1000 ${
               isAnimating ? "opacity-0" : "opacity-100"
             }`}
           >
             {currentContent.text}
           </p>
-          <button className="uppercase font-bold text-start tracking-[1em] w-2/3 hover:text-gray-400">
+          <button className="uppercase font-bold text-start tracking-[1em] md:w-2/3 hover:text-gray-400">
             Shop now{" "}
             <Image
               className="inline"
@@ -116,31 +120,8 @@ export default function Hero() {
             />
           </button>
         </div>
-        <div className="absolute bottom-0 left-0 flex justify-around md:w-48 md:h-24 ">
-          <button
-            onClick={handlePrev}
-            className="flex-1 flex justify-center items-center bg-black hover:bg-gray-700"
-            aria-label="Previous slide"
-          >
-            <Image
-              src="/images/icon-angle-left.svg"
-              alt=""
-              width={20}
-              height={20}
-            />
-          </button>
-          <button
-            onClick={handleNext}
-            className="flex-1 flex justify-center items-center bg-black hover:bg-gray-700"
-            aria-label="Next slide"
-          >
-            <Image
-              src="/images/icon-angle-right.svg"
-              alt=""
-              width={20}
-              height={20}
-            />
-          </button>
+        <div className="hidden absolute bottom-0 right-0 md:flex md:justify-around md:left-0 md:w-32 md:h-14 ">
+          <SlideshowButtons handleNext={handleNext} handlePrev={handlePrev} />
         </div>
       </div>
     </div>
